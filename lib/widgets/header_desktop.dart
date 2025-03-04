@@ -1,60 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/styles/color.dart';
 import 'package:portfolio/items/navItems.dart';
-import 'package:portfolio/styles/navStyle.dart';
+import 'package:portfolio/styles/color.dart';
 
-// header desktop
+class HeaderDesktop extends StatelessWidget implements PreferredSizeWidget {
+  final Function(int) scrollToSection;
+  final int selectedIndex;
 
-class HeaderDesktop extends StatelessWidget {
-  final double screenWidth;
-  final double screenHeight;
-  const HeaderDesktop(
-      {Key? key, required this.screenWidth, required this.screenHeight})
-      : super(key: key);
+  const HeaderDesktop({
+    Key? key,
+    required this.scrollToSection,
+    required this.selectedIndex,
+  }) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: screenHeight / 9,
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-      decoration: const BoxDecoration(
-        color: Colors.transparent,
-      ),
-      // kGradientBoxDecoration
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      flexibleSpace: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 40), // Giảm height từ 20 xuống 10
           const Text(
             "Đinh Xuân Hoàng",
             style: TextStyle(
-              color: CustomColor.fontMain,
-              fontSize: 30,
+              color: Color.fromRGBO(75, 43, 43, 0.902),
+              fontSize: 28,
               fontWeight: FontWeight.bold,
+              letterSpacing: 1.2,
             ),
           ),
+          const SizedBox(height: 20),
+
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              for (var i = 0; i < navItems.length; i++)
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: TextButton(
-                      style: ButtonStyle(
-                        overlayColor:
-                            WidgetStateProperty.resolveWith<Color>((State) {
-                          if (State.contains(WidgetState.pressed)) {
-                            return CustomColor.navButtonBG;
-                          } else {
-                            return Colors.transparent;
-                          }
-                        }),
+              ...List.generate(
+                NavItems.navItems.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextButton.icon(
+                    onPressed: () => scrollToSection(index),
+                    icon: Icon(
+                      NavItems.navIcons[index],
+                      color: selectedIndex == index
+                          ? CustomColor.selected
+                          : CustomColor.unselected,
+                    ),
+                    label: Text(
+                      NavItems.navItems[index],
+                      style: TextStyle(
+                        color: selectedIndex == index
+                            ? CustomColor.selected
+                            : CustomColor.unselected,
                       ),
-                      onPressed: () {},
-                      child: Text(navItems[i],
-                          style: const TextStyle(
-                            color: CustomColor.fontMain,
-                            fontSize: 18,
-                          )),
-                    )),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ],

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/items/navItems.dart'; // Updated import
 import 'package:portfolio/styles/color.dart';
 
-// about me
 class AboutmeDesktop extends StatelessWidget {
   final double screenWidth;
   final double screenHeight;
+
   const AboutmeDesktop(
       {Key? key, required this.screenWidth, required this.screenHeight})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // var screenWidth = MediaQuery.of(context).size.width;
-    // var screenHeight = MediaQuery.of(context).size.height;
     return Container(
       decoration: const BoxDecoration(
         color: CustomColor.aboutMeBG,
@@ -22,7 +21,6 @@ class AboutmeDesktop extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // introduce
           Expanded(
             flex: 1,
             child: Column(
@@ -35,29 +33,30 @@ class AboutmeDesktop extends StatelessWidget {
                         fontSize: 30,
                         height: 1.5,
                       )),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: CustomColor.aboutMeBtn,
-                            foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50, vertical: 20),
-                          ),
-                          onPressed: () {},
-                          child: const Text("Tải CV"))
-                    ],
-                  )
+                  const SizedBox(height: 50),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: CustomColor.aboutMeBtn,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 50, vertical: 20),
+                      ),
+                      onPressed: () async {
+                        try {
+                          await NavItems.downloadCV();
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Error downloading CV: $e')),
+                          );
+                        }
+                      },
+                      child: const Text("Tải CV"))
                 ]),
           ),
-          // image
+          // Avatar image
           Expanded(
               flex: 1,
               child: Center(

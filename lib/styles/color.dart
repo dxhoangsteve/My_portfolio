@@ -20,4 +20,16 @@ class CustomColor {
   // skill color
   static const Color skillBG = Color(0xFFF7D0FF);
   static const Color skillBtn = Color.fromARGB(255, 255, 255, 255);
+
+  // project color
+  static const Color projectBG = Color.fromARGB(255, 112, 249, 249);
+  static const Color projectLink = Color(0xFF8ACB53);
+
+  static const Color hoverColor =
+      Color(0xFFF5F5F5); // Light grey color for hover
+
+  // select color
+  static const Color selected = Color(0xFF8ACB53);
+  static const Color selectedIndex = Color.fromARGB(255, 63, 74, 53);
+  static const Color unselected = Color.fromARGB(255, 107, 226, 175);
 }

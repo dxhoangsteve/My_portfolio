@@ -14,7 +14,6 @@ class SkillDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-        // Bỏ constraints cứng về height, chỉ để minHeight
         constraints: BoxConstraints(
           minHeight: screenHeight * 0.9,
         ),
@@ -22,8 +21,7 @@ class SkillDesktop extends StatelessWidget {
           color: CustomColor.skillBG,
         ),
         child: Column(
-          mainAxisSize: MainAxisSize
-              .min, // Quan trọng: để Column chỉ chiếm không gian cần thiết
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Text("Kỹ năng của mình",
@@ -34,8 +32,7 @@ class SkillDesktop extends StatelessWidget {
                 )),
             const SizedBox(height: 30),
             Row(
-              crossAxisAlignment:
-                  CrossAxisAlignment.start, // Đảm bảo Row bắt đầu từ trên xuống
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                     flex: 1,
