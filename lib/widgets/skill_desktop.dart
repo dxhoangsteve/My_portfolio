@@ -48,7 +48,17 @@ class SkillDesktop extends StatelessWidget {
                               skillIcon: item['img'], skillName: item['title'])
                       ],
                     )),
-                const Expanded(flex: 1, child: Column())
+                Expanded(
+                    flex: 1,
+                    child: Wrap(
+                      spacing: 30,
+                      runSpacing: 20,
+                      children: [
+                        for (var item in platformItems)
+                          Buttonplatform(
+                              skillIcon: item['img'], skillName: item['title'])
+                      ],
+                    ))
               ],
             )
           ],

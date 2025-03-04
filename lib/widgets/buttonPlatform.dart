@@ -29,7 +29,7 @@ class Buttonplatform extends StatelessWidget {
               width: 50,
               child: Image.asset(
                 skillIcon,
-                cacheWidth: 50,
+                cacheWidth: 45,
               ),
             ),
             const SizedBox(width: 10),
