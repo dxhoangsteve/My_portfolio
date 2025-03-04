@@ -20,12 +20,11 @@ class NavItems {
 
   static Future<void> downloadCV() async {
     try {
-      const pdfPath =
-          'assets/files/InternMobileDeveloper_PhamAnhTuan_Standard.pdf';
+      const pdfPath = 'assets/files/InternIOT_DinhXuanHoang.pdf';
 
       // Create anchor element with direct path
       final anchor = html.AnchorElement(href: pdfPath)
-        ..setAttribute('download', 'PhamAnhTuan_CV.pdf')
+        ..setAttribute('download', 'CV.pdf')
         ..style.display = 'none';
 
       html.document.body?.children.add(anchor);
