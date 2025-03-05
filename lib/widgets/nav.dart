@@ -42,7 +42,7 @@ class Nav extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () => _scrollToSection(aboutOffset),
-            child: const Text('About'),
+            child: const Text('About me'),
           ),
           TextButton(
             onPressed: () => _scrollToSection(skillsOffset),
@@ -55,13 +55,6 @@ class Nav extends StatelessWidget {
           TextButton(
             onPressed: () => _scrollToSection(contactOffset),
             child: const Text('Contact'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              _launchURL(
-                  "/assets/files/InternMobileDeveloper_PhamAnhTuan_Standard.pdf");
-            },
-            child: const Text('Download CV'),
           ),
         ],
       ),

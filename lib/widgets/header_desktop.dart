@@ -23,7 +23,7 @@ class HeaderDesktop extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 40), // Giảm height từ 20 xuống 10
+          const SizedBox(height: 40),
           const Text(
             "Đinh Xuân Hoàng",
             style: TextStyle(
@@ -34,7 +34,6 @@ class HeaderDesktop extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           const SizedBox(height: 20),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

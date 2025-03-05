@@ -17,35 +17,34 @@ class ProjectItem {
 
 List<ProjectItem> projects = [
   ProjectItem(
-      name: "THE AZURE HOTEL MANAGEMENT APP | 2024",
-      role: "Team Leader (3 members), UI/UX Designer, Backend Developer, QA/QC",
+      name: "Restaurant Management | 2023",
+      role: "Member (3 members), UI/UX Designer, Backend Developer, QA/QC",
       tech:
           "Languages and Frameworks: C#, MSSQL, WinForms, Synfusion for Windows Form",
-      tools: "Tools: Github, Trello, Figma",
-      github:
-          "https://github.com/phamanhtuan-coder/The-Azure-Hotel-Management-App",
+      tools: "Tools: Github",
+      github: "https://github.com/dxhoangsteve/Winform_programming_project",
+      features: []),
+  ProjectItem(
+      name: "Phoneshop | 2025",
+      role: "Member (3 members), UI/UX Designer, Backend Developer, QA/QC",
+      tech: "Languages and Frameworks: Flutter, Express.js, MySQL",
+      tools: "Tools: GitHub, Android Studio, MySQL Workbench",
+      github: "https://github.com/TQBao2ca3/DoAnLapTrinhDiDong",
       features: [
-        "Guest Management: Manage guest information, including check-in and check-out processes",
-        "Room Management: Oversee room availability, assignments, and status updates",
-        "Booking System: Handle reservations and cancellations efficiently",
-        "Billing: Generate invoices and manage payments",
-        "Reporting: Create various reports for analysis and decision-making"
+        "Product Management: Display product lists, view details, and add items to the cart",
+        "Order Processing: Manage cart items, adjust quantities, and complete payments",
+        "User Profile Management: Update personal information and track order history",
+        "Payment Integration: Support multiple payment methods for seamless checkout"
       ]),
   ProjectItem(
-      name: "My Portfolio Web App | 2024",
-      role: "Personal Project, Full-Stack",
-      tech:
-          "Languages and Frameworks: Dart, Firebase, Flutter, Synfusion for Dart",
-      tools: "Tools: Github, Trello, Figma",
-      github: "https://github.com/phamanhtuan-coder/dart_my_portfolio",
-      features: []),
-  ProjectItem(
-      name:
-          "E-commerce Mobile Application For Selling Technology Products | 2024-2025 (Working)",
-      role: "Leader (Team of 4), UI/UX Designer, Backend, QA/QC",
-      tech:
-          "Languages and Frameworks: Kotlin, Firebase, Sqlite, Jetpack Compose",
-      tools: "Tools: Github, Trello, Jira, Slack, Figma, Notion",
-      github: "Work in progress",
-      features: []),
+      name: "Control ESP8266 with telegram bot via mqtt | 2025",
+      role: "Personal project",
+      tech: "Languages and Frameworks: C++, Python",
+      tools: "Tools: GitHub, Platformio, mosquitto, MQTT explorer",
+      github: "https://github.com/dxhoangsteve/ESP8266_MQTT",
+      features: [
+        "Built a system to control IoT devices (ESP8266) via MQTT protocol and Telegram bot",
+        "Enabled real-time communication for device control and status updates",
+        "Ensured secure and efficient message publishing/subscribing through MQTT broker"
+      ]),
 ];

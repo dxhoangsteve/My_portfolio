@@ -5,6 +5,7 @@ import 'package:portfolio/widgets/aboutMe_desktop.dart';
 import 'package:portfolio/widgets/header_desktop.dart';
 import 'package:portfolio/widgets/project.dart';
 import 'package:portfolio/widgets/skill_desktop.dart';
+import 'package:portfolio/widgets/contact_desktop.dart';
 import '../widgets/nav.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   // Offsets for each section
   final double _skillsOffset = 600;
   final double _projectsOffset = 1200;
-  final double _aboutOffset = 300;
+  final double _aboutOffset = 100;
   final double _contactOffset = 1800;
 
   @override
@@ -29,7 +30,6 @@ class _HomePageState extends State<HomePage> {
     final ScreenHeight = MediaQuery.of(context).size.height;
     return LayoutBuilder(builder: (context, constrains) {
       return Scaffold(
-        // Removed unnecessary scaffold key
         backgroundColor: CustomColor.navBG,
         appBar: AppBar(
           title: HeaderDesktop(
@@ -61,6 +61,10 @@ class _HomePageState extends State<HomePage> {
                       screenHeight: ScreenHeight,
                     ),
                     ProjectCard(
+                      screenWidth: ScreenWidth,
+                      screenHeight: ScreenHeight,
+                    ),
+                    ContactDesktop(
                       screenWidth: ScreenWidth,
                       screenHeight: ScreenHeight,
                     ),
