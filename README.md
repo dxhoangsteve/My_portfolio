@@ -1,12 +1,11 @@
 # Portfolio Cá Nhân Flutter
 
-Một portfolio cá nhân được xây dựng bằng Flutter với giao diện hiện đại và hiệu ứng đẹp mắt.
+Bạn có thể vô trang web này để xem portfolio của mình https://dxhoangsteve.github.io/My_portfolio/
 
 ## Tính năng
 
-- **Giao diện hiện đại**: Thiết kế đẹp mắt với bảng màu hài hòa và thẩm mỹ
-- **Hiệu ứng đẹp**: Animations mượt mà khi chuyển đổi và khi tương tác
-- **Responsive**: Hoạt động tốt trên nhiều kích thước màn hình
+- **Giao diện trên github io**: Trang web portfolio của tôi được deloy trên github io
+- **Hiệu ứng chuyển cảnh**: Animations khi chuyển đổi và khi tương tác nhưng chưa được tối ưu 
 - **Sections**:
   - Thông tin cá nhân
   - Kỹ năng
@@ -58,12 +57,20 @@ Bạn có thể tùy chỉnh portfolio bằng cách:
 1. Thay đổi thông tin cá nhân trong các files trong thư mục `items/`
 2. Thay đổi hình ảnh trong thư mục `assets/images/`
 3. Điều chỉnh màu sắc trong `lib/styles/color.dart`
+4. Điều chỉnh các kỹ năng trong `lib/items/skills.dart`
 
-## Screenshots
+
+## Screenshots 
+
+1 vài hình ảnh trong portfolio
 
 ![Screenshot 1](assets/images/screenshot1.png)
 ![Screenshot 2](assets/images/screenshot2.png)
+![Screenshot 3](assets/images/screenshot3.png)
+![Screenshot 4](assets/images/screenshot4.png)
 
+## Lưu ý
+Hiện tại portfolio này chưa được tối ưu hiệu xuất nên tốc độ phản hồi tương đối kém, animation chưa mượt mà
 ## License
 
 MIT License
