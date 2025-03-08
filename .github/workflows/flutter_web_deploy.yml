@@ -1,0 +1,39 @@
+name: Deploy Flutter Web to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+          channel: 'stable'
+      
+      - name: Get dependencies
+        run: flutter pub get
+      
+      - name: Build web
+        run: flutter build web --release --base-href="/My_portfolio/"
+      
+      - name: Copy files to docs directory
+        run: |
+          rm -rf docs/*
+          cp -r build/web/* docs/
+          touch docs/.nojekyll
+      
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add docs
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update GitHub Pages"
+          git push 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio/styles/color.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class ContactDesktop extends StatelessWidget {
   final double screenWidth;
@@ -68,28 +69,38 @@ class ContactDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            CustomColor.contactBG,
+            CustomColor.contactBG.withOpacity(0.8),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
       ),
       height: screenHeight * 0.9,
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 50),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "Contact Information",
+            "Thông tin liên hệ",
             style: TextStyle(
-              fontSize: 32,
+              fontSize: 35,
               fontWeight: FontWeight.bold,
               color: CustomColor.tittle,
             ),
-          ),
-          const SizedBox(height: 40),
+          )
+              .animate()
+              .fadeIn(duration: 600.ms, delay: 200.ms)
+              .moveY(begin: -20, end: 0),
+          const SizedBox(height: 50),
           _buildContactItem(Icons.person, "Đinh Xuân Hoàng", onTap: null),
           _buildContactItem(
             Icons.phone,
-            "0239474859",
-            onTap: () => _copyToClipboard("0239474859", context),
+            "0337 446 990",
+            onTap: () => _copyToClipboard("0337446990", context),
           ),
           _buildContactItem(
             Icons.email,
@@ -117,13 +128,13 @@ class ContactDesktop extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 24, color: CustomColor.fontMain),
+            Icon(icon, size: 24, color: CustomColor.bodyText),
             const SizedBox(width: 10),
             Text(
               text,
               style: const TextStyle(
                 fontSize: 18,
-                color: CustomColor.fontMain,
+                color: CustomColor.bodyText,
               ),
             ),
             if (onTap != null) ...[

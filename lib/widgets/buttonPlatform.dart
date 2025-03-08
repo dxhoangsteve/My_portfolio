@@ -34,8 +34,8 @@ class Buttonplatform extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Text(skillName,
-                style: const TextStyle(
-                  color: CustomColor.fontMain,
+                style: TextStyle(
+                  color: CustomColor.bodyText,
                   fontSize: 15,
                 )),
           ])),

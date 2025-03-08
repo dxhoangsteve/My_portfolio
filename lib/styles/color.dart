@@ -2,34 +2,60 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CustomColor {
-  // topbar color
-  static const Color navButtonBG = Color(0xFF000000);
-  static const Color navBgStart = Color(0xFFAFFFF8);
-  static const Color navBgEnd = Color(0xFF699995);
+  // Bảng màu chính
+  static const Color primary = Color(0xFF6200EE);
+  static const Color primaryVariant = Color(0xFF3700B3);
+  static const Color secondary = Color(0xFF03DAC6);
+  static const Color secondaryVariant = Color(0xFF018786);
+  static const Color accent = Color(0xFFFF4081);
 
-  static const Color navBG = Color(0xFFc9cccd);
-  // font color
-  static const Color fontMain = Color(0xFF426B1F);
-  static const Color tittle = Color(0xFF000000);
-  static const Color subTittle = Color(0xFF000000);
+  // Màu nền
+  static const Color navBG = Color(0xFFF5F7FA);
+  static const Color aboutMeBG = Color(0xFFF0F7FF);
+  static const Color skillBG = Color(0xFFFFF0F7);
+  static const Color projectBG = Color(0xFFF0FFFC);
+  static const Color contactBG = Color(0xFFFFF8F0);
 
-  // about me color
-  static const Color aboutMeBG = Color.fromARGB(185, 216, 255, 184);
-  static const Color aboutMeBtn = Color(0xFF8ACB53);
+  // Màu gradient
+  static const Gradient primaryGradient = LinearGradient(
+    colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
 
-  // skill color
-  static const Color skillBG = Color(0xFFF7D0FF);
-  static const Color skillBtn = Color.fromARGB(255, 255, 255, 255);
+  static const Gradient secondaryGradient = LinearGradient(
+    colors: [Color(0xFF00CDAC), Color(0xFF02AAB0)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
 
-  // project color
-  static const Color projectBG = Color.fromARGB(255, 112, 249, 249);
-  static const Color projectLink = Color(0xFF8ACB53);
+  static const Gradient accentGradient = LinearGradient(
+    colors: [Color(0xFFFA8BFF), Color(0xFF2BD2FF), Color(0xFF2BFF88)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
 
-  static const Color hoverColor =
-      Color(0xFFF5F5F5); // Light grey color for hover
+  // Màu text
+  static const Color tittle = Color(0xFF212121);
+  static const Color subTittle = Color(0xFF757575);
+  static const Color bodyText = Color(0xFF616161);
+  static const Color lightText = Color(0xFFEEEEEE);
 
-  // select color
-  static const Color selected = Color(0xFF8ACB53);
-  static const Color selectedIndex = Color.fromARGB(255, 63, 74, 53);
-  static const Color unselected = Color.fromARGB(255, 107, 226, 175);
+  // Màu nút và tương tác
+  static const Color buttonPrimary = Color(0xFF6200EE);
+  static const Color buttonSecondary = Color(0xFF03DAC6);
+  static const Color aboutMeBtn = Color(0xFF6200EE);
+  static const Color hoverColor = Color(0xFFE0E0FF);
+  static const Color cardShadow = Color(0x1A000000);
+
+  // Màu cho navigation
+  static const Color selected = Color(0xFF6200EE);
+  static const Color selectedIndex = Color(0xFF3700B3);
+  static const Color unselected = Color(0xFF757575);
+
+  // Màu cho skill
+  static const Color skillBtn = Colors.white;
+
+  // Màu cho project
+  static const Color projectLink = Color(0xFF6200EE);
 }

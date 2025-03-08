@@ -1,37 +1,69 @@
-# My Portfolio
+# Portfolio Cá Nhân Flutter
 
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
-
-## Giới thiệu
-
-Đây là portfolio cá nhân của tôi được phát triển bằng Flutter. Dự án này giới thiệu về bản thân, kỹ năng, dự án đã thực hiện và thông tin liên hệ của tôi.
-
-## Demo
-
-Xem trực tiếp tại [https://dxhoangsteve.github.io/My_portfolio/](https://dxhoangsteve.github.io/My_portfolio/)
+Một portfolio cá nhân được xây dựng bằng Flutter với giao diện hiện đại và hiệu ứng đẹp mắt.
 
 ## Tính năng
 
-- Giới thiệu bản thân và kỹ năng (Chi tiết trong CV)
-- Showcase các dự án đã thực hiện
-- Thông tin liên hệ của tôi và mạng xã hội
+- **Giao diện hiện đại**: Thiết kế đẹp mắt với bảng màu hài hòa và thẩm mỹ
+- **Hiệu ứng đẹp**: Animations mượt mà khi chuyển đổi và khi tương tác
+- **Responsive**: Hoạt động tốt trên nhiều kích thước màn hình
+- **Sections**:
+  - Thông tin cá nhân
+  - Kỹ năng
+  - Dự án
+  - Liên hệ
 
-## Công nghệ sử dụng
+## Cài đặt
 
-- Dart language and Flutter framework 
-- [Các thư viện và công nghệ khác]
+1. Đảm bảo Flutter đã được cài đặt trên máy tính của bạn
+2. Clone repository này
+3. Chạy lệnh sau để cài đặt dependencies:
 
-## Cài đặt và chạy dự án
+```bash
+flutter pub get
+```
 
-### Yêu cầu
-- Flutter (phiên bản 3.5 trở lên)
-- Dart (phiên bản 3.7 trở lên)
+4. Chạy ứng dụng:
 
-### Các bước cài đặt
+```bash
+flutter run -d chrome
+```
 
-1. Clone repository này:
+## Dependencies
 
-2. Trong terminal chạy lệnh "flutter pub get để add lib từ pubspec.yaml"
+Portfolio này sử dụng các thư viện sau:
 
-3. Chạy trong terminal dòng lệnh này "flutter run" sau đó chọn thiết bị.
+- flutter_animate: Tạo các hiệu ứng animations
+- flutter_staggered_animations: Tạo hiệu ứng staggered
+- url_launcher: Mở link và download file
+- google_fonts: Sử dụng Google Fonts
+- shimmer: Tạo hiệu ứng shimmer loading
+- lottie: Animations phức tạp
+
+## Cấu trúc project
+
+```
+lib/
+├── items/         # Data models và dữ liệu static
+├── pages/         # Màn hình chính
+├── styles/        # Colors, themes và styles
+├── widgets/       # UI components
+└── main.dart      # Entry point
+```
+
+## Tùy chỉnh
+
+Bạn có thể tùy chỉnh portfolio bằng cách:
+
+1. Thay đổi thông tin cá nhân trong các files trong thư mục `items/`
+2. Thay đổi hình ảnh trong thư mục `assets/images/`
+3. Điều chỉnh màu sắc trong `lib/styles/color.dart`
+
+## Screenshots
+
+![Screenshot 1](assets/images/screenshot1.png)
+![Screenshot 2](assets/images/screenshot2.png)
+
+## License
+
+MIT License
