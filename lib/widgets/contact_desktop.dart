@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:portfolio/styles/color.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,9 +13,55 @@ class ContactDesktop extends StatelessWidget {
     required this.screenHeight,
   }) : super(key: key);
 
-  void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+  // Cập nhật phương thức này để sử dụng API mới của url_launcher
+  void _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    }
+  }
+
+  // Phương thức mới để mở ứng dụng email
+  void _launchEmail(String email) async {
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: email,
+      query: encodeQueryParameters(<String, String>{
+        'subject': 'Contact from Portfolio Website',
+      }),
+    );
+
+    if (await canLaunchUrl(emailUri)) {
+      await launchUrl(emailUri);
+    }
+  }
+
+  // Hàm hỗ trợ mã hóa tham số truy vấn
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+
+  // Phương thức mới để sao chép vào clipboard
+  void _copyToClipboard(String text, BuildContext context) {
+    Clipboard.setData(ClipboardData(text: text));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Đã sao chép: $text'),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Phương thức mới để mở Google Maps
+  void _openMap(String address) async {
+    final Uri mapUri = Uri.parse(
+        'https://www.google.com/maps/search/?api=1&query=${Uri.encodeComponent(address)}');
+
+    if (await canLaunchUrl(mapUri)) {
+      await launchUrl(mapUri, mode: LaunchMode.externalApplication);
     }
   }
 
@@ -38,31 +85,57 @@ class ContactDesktop extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 40),
-          _buildContactItem(Icons.person, "Đinh Xuân Hoàng"),
-          _buildContactItem(Icons.phone, "0239474859"),
-          _buildContactItem(Icons.email, "dinhxuanh09@gmail.com"),
-          _buildContactItem(Icons.location_on, "Quận 7, TP.HCM"),
+          _buildContactItem(Icons.person, "Đinh Xuân Hoàng", onTap: null),
+          _buildContactItem(
+            Icons.phone,
+            "0239474859",
+            onTap: () => _copyToClipboard("0239474859", context),
+          ),
+          _buildContactItem(
+            Icons.email,
+            "dinhxuanh09@gmail.com",
+            onTap: () => _launchEmail("dinhxuanh09@gmail.com"),
+          ),
+          _buildContactItem(
+            Icons.location_on,
+            "1137/3, đường Huỳnh Tấn Phát, phường Phú Thuận, Quận 7, TP.HCM",
+            onTap: () => _openMap(
+                "1137/3, đường Huỳnh Tấn Phát, phường Phú Thuận, Quận 7, TP.HCM"),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildContactItem(IconData icon, String text) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 24, color: CustomColor.fontMain),
-          const SizedBox(width: 10),
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 18,
-              color: CustomColor.fontMain,
+  // Cập nhật widget này để thêm InkWell và xử lý sự kiện onTap
+  Widget _buildContactItem(IconData icon, String text, {VoidCallback? onTap}) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 24, color: CustomColor.fontMain),
+            const SizedBox(width: 10),
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 18,
+                color: CustomColor.fontMain,
+              ),
             ),
-          ),
-        ],
+            if (onTap != null) ...[
+              const SizedBox(width: 8),
+              const Icon(
+                Icons.touch_app,
+                size: 16,
+                color: Colors.blue,
+              ),
+            ],
+          ],
+        ),
       ),
     );
   }

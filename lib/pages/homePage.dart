@@ -19,10 +19,10 @@ class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
 
   // Offsets for each section
-  final double _skillsOffset = 600;
-  final double _projectsOffset = 1200;
-  final double _aboutOffset = 100;
-  final double _contactOffset = 1800;
+  final double _skillsOffset = 670;
+  final double _projectsOffset = 1340;
+  final double _aboutOffset = 80;
+  final double _contactOffset = 2400;
 
   @override
   Widget build(BuildContext context) {
